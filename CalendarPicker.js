@@ -34,6 +34,8 @@ function CalendarPicker(element, options) {
     // Ranges for the calendar (optional).
     this.min = options.min;
     this.max = options.max;
+    console.log(this.max);
+    this.disabledDays = options.disabledDays;
     this._formatDateToInit(this.min);
     this._formatDateToInit(this.max);
 
@@ -268,7 +270,8 @@ CalendarPicker.prototype._insertDaysIntoGrid = function () {
         if (dateIsTheCurrentValue) this.activeDateElement = dateElement;
 
         var dateIsBetweenAllowedRange = (this.min || this.max) && (date.toString() !== this.today.toString() && (date < this.min || date > this.max))
-        if (dateIsBetweenAllowedRange) {
+        var dayIsDisabled = (this.disabledDays) && this.disabledDays.includes(date.getDay())
+        if (dateIsBetweenAllowedRange || dayIsDisabled) {
             dateElement.classList.add('disabled');
         } else {
             dateElement.tabIndex = 0;

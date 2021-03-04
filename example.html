@@ -197,7 +197,8 @@
     const myCalender = new CalendarPicker('#myCalendarWrapper', {
         // If max < min or min > max then the only available day will be today.
         min: new Date(),
-        max: new Date(nextYear, 10) // NOTE: new Date(nextYear, 10) is "Sun Nov 01 <nextYear>"
+        max: new Date(nextYear, 10), // NOTE: new Date(nextYear, 10) is "Sun Nov 01 <nextYear>"
+        disabledDays: [0,6] // Optionnal : Give the possibility to disabled days, 0 = Sunday, 1 = Monday etc ...
     });
 
     const currentDateElement = document.getElementById('current-date');

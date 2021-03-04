@@ -34,7 +34,6 @@ function CalendarPicker(element, options) {
     // Ranges for the calendar (optional).
     this.min = options.min;
     this.max = options.max;
-    console.log(this.max);
     this.disabledDays = options.disabledDays;
     this._formatDateToInit(this.min);
     this._formatDateToInit(this.max);

@@ -211,7 +211,9 @@ CalendarPicker.prototype._insertNavigationButtons = function () {
     this.nextMonthArrow.innerHTML = arrowSvg;
 
     this.previousMonthArrow.setAttribute('aria-label', 'Go to previous month');
+    this.previousMonthArrow.setAttribute('type', 'button'); // Prevent submission when placed in a form
     this.nextMonthArrow.setAttribute('aria-label', 'Go to next month');
+    this.nextMonthArrow.setAttribute('type', 'button'); // Prevent submission when placed in a form
 
     this.navigationWrapper.appendChild(this.previousMonthArrow);
     this.navigationWrapper.appendChild(this.nextMonthArrow);

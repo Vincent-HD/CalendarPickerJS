@@ -53,6 +53,7 @@ function CalendarPicker(element, options) {
     this.previousMonthArrow = document.createElement('button');
     this.nextMonthArrow = document.createElement('button');
     this.calendarGridDays = document.createElement('section')
+    this.calendarGridSmallDays = document.createElement('section')
     this.calendarGrid = document.createElement('section');
     this.calendarDayElementType = 'time';
 
@@ -65,6 +66,16 @@ function CalendarPicker(element, options) {
         'Friday',
         'Saturday',
         'Sunday'
+    ];
+
+    this.listOfAllSmallDaysAsText = [
+        'Mon',
+        'Tue',
+        'Wed',
+        'Thu',
+        'Fri',
+        'Sat',
+        'Sun'
     ];
 
     // Hard-coded list of all months.
@@ -87,6 +98,9 @@ function CalendarPicker(element, options) {
     this.calendarWrapper.id = 'calendar-wrapper';
     this.calendarElement.id = 'calendar';
     this.calendarGridDays.id = 'calendar-days';
+    this.calendarGridDays.classList.add('full-days')
+    this.calendarGridSmallDays.id = 'calendar-days';
+    this.calendarGridSmallDays.classList.add('small-days')
     this.calendarGrid.id = 'calendar-grid';
     this.navigationWrapper.id = 'navigation-wrapper';
     this.previousMonthArrow.id = 'previous-month';
@@ -196,6 +210,13 @@ CalendarPicker.prototype._insertCalendarGridDaysHeader = function () {
     })
 
     this.calendarElement.appendChild(this.calendarGridDays);
+
+    this.listOfAllSmallDaysAsText.forEach(smallDay => {
+        var dayElement = document.createElement('span');
+        dayElement.textContent = smallDay;
+        this.calendarGridSmallDays.appendChild(dayElement);
+    })
+    this.calendarElement.appendChild(this.calendarGridSmallDays);
 }
 
 /**

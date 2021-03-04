@@ -136,3 +136,14 @@
     transform: rotate(180deg);
 }
 
+@media screen and (max-width: 481px) {
+    #calendar #calendar-days.full-days {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 481px) {
+    #calendar #calendar-days.small-days {
+        display: none;
+    }
+}
